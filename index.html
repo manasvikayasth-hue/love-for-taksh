@@ -19,7 +19,7 @@
         overflow: hidden;
       }
 
-      /* 🌸 BACKGROUND HEARTS */
+      /* BACKGROUND HEARTS */
       #bgHearts span {
         position: absolute;
         font-size: 14px;
@@ -77,7 +77,7 @@
         font-weight: 500;
       }
 
-      /* 💖 GLOWING YES BUTTON */
+      /* GLOWING YES */
       .yes {
         background: white;
         color: #ff4e73;
@@ -128,7 +128,7 @@
         }
       }
 
-      /* 💋 KISS */
+      /* KISS */
       .kiss {
         position: fixed;
         font-size: 28px;
@@ -201,12 +201,13 @@
       <button onclick="finalYes()">YES 💖</button>
     </div>
 
+    <!-- 🎵 FIXED AUDIO -->
     <audio id="music" loop>
-      <source src="Tum Ho Toh Saiyaara 128 Kbps.mp3" />
+      <source src="Tum Ho Toh - PagalNew.mp3" />
     </audio>
 
     <script>
-      /* BACKGROUND HEARTS */
+      /* HEARTS */
       setInterval(() => {
         const heart = document.createElement("span");
         heart.innerHTML = "💗";
@@ -216,7 +217,7 @@
         setTimeout(() => heart.remove(), 8000);
       }, 500);
 
-      /* SCENES */
+      /* SCENE */
       function showScene(id) {
         document
           .querySelectorAll(".scene")
@@ -226,12 +227,22 @@
 
       setTimeout(() => showScene("lock"), 4000);
 
+      /* 🎵 MUSIC FIX */
+      const music = document.getElementById("music");
+
+      function playMusic() {
+        music.play().catch(() => {});
+      }
+
+      document.addEventListener("click", playMusic, { once: true });
+      document.addEventListener("touchstart", playMusic, { once: true });
+
       /* PASSWORD */
       function unlock() {
         if (pass.value === "Taksh@1115") {
           showScene("main");
           typeWriter();
-          music.play();
+          playMusic();
         } else alert("Wrong 😢");
       }
 
@@ -255,7 +266,7 @@ Will you stay forever? 💖`;
         setTimeout(() => showScene("quiz"), 1500);
       }
 
-      /* NO BUTTON */
+      /* NO */
       const noBtn = document.getElementById("noBtn");
 
       const texts = [
@@ -336,11 +347,6 @@ Will you stay forever? 💖`;
         document.body.innerHTML = `<h1 style="text-align:center;margin-top:40vh;">
   Forever with you ❤️💍</h1>`;
       }
-
-      /* MUSIC */
-      document.body.addEventListener("click", () => music.play(), {
-        once: true,
-      });
     </script>
   </body>
 </html>
